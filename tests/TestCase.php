@@ -77,8 +77,11 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
 
     protected static function assertNoSniffErrorInFile(File $phpcsFile): void
     {
-        $errors = $phpcsFile->getErrors();
-        self::assertEmpty($errors, sprintf('No errors expected, but %d errors found.', count($errors)));
+        $errors = array();
+        foreach ($phpcsFile->getErrors() as $line_number => $error) {
+            $errors[] = $error[1][0]['message'] . '::' . $line_number;
+        }
+        self::assertEmpty($errors, sprintf('No errors expected, but %d errors found:', count($errors)) . PHP_EOL . "\t" . implode(PHP_EOL . "\t", $errors));
     }
 
     protected static function assertSniffError(File $phpcsFile, int $line, string $code, ?string $message = null): void
