@@ -1,13 +1,13 @@
 <?php
 
-namespace Sandersj16\SweetScent\Sniffs\Braces;
+namespace SweetScent\Sniffs\Braces;
 
 use PHP_CodeSniffer\Sniffs\Sniff;
 use PHP_CodeSniffer\Files\File;
 
 class AllowSingleLineClassSniff implements Sniff
 {
-    const INCORRECT_CLASS_BRACKETS = 'INCORRECT_CLASS_BRACKETS';
+    const INCORRECT_CLASS_BRACKETS = 'INCORRECT_CLASS_BRACKET';
 
     public function register()
     {
@@ -31,6 +31,10 @@ class AllowSingleLineClassSniff implements Sniff
             }
         } while ($token_code != T_OPEN_CURLY_BRACKET);
 
+        if (!$new_line && ($tokens[$variablePointer - 1]['code'] != T_WHITESPACE || $tokens[$variablePointer - 1]['content'] != ' ')) {
+            $phpcsFile->addError('Must have single space after class declaration before opening bracket', $variablePointer, self::INCORRECT_CLASS_BRACKETS);
+            return;
+        }
 
         $i = 1;
         $next_token = $tokens[$variablePointer + $i];

@@ -1,6 +1,6 @@
 <?php
 
-namespace Sandersj16\SweetScent\Tests;
+namespace SweetScent\Tests;
 
 use Exception;
 use PHP_CodeSniffer\Config;

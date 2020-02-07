@@ -9,7 +9,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Sandersj16\\SweetScent\\" : "src/"
+            "SweetScent\\" : "src/"
         }
     },
     "require-dev": {
@@ -17,7 +17,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Sandersj16\\SweetScent\\Tests\\" : "tests/"
+            "SweetScent\\Tests\\" : "tests/"
         }
     }
 }
