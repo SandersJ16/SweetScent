@@ -31,6 +31,7 @@ class AllowSingleLineClassSniff implements Sniff
             }
         } while ($token_code != T_OPEN_CURLY_BRACKET);
 
+        // If we did not encountered a newline then check that the opening bracket is followed by a space
         if (!$new_line && ($tokens[$variablePointer - 1]['code'] != T_WHITESPACE || $tokens[$variablePointer - 1]['content'] != ' ')) {
             $phpcsFile->addError('Must have single space after class declaration before opening bracket', $variablePointer, self::INCORRECT_CLASS_BRACKETS);
             return;
