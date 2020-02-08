@@ -1,5 +1,6 @@
 {
-    "name": "sanderj16/sweet-scent",
+    "name": "sanderj16/sweetscent",
+    "version": "0.1.1",
     "description": "A PHPCS Coding standard extension",
     "type": "phpcodesniffer-standard",
     "license": "MIT",
