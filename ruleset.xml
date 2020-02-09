@@ -1,4 +1,6 @@
 <?xml version="1.0"?>
-<ruleset name="Sweet Scent">
+<ruleset name="SweetScent">
     <description>A custom coding standard</description>
+    <!--rule ref="PSR2"/-->
+    <rule ref="SweetScent.Braces.AllowSingleLineClass"/>
 </ruleset>
